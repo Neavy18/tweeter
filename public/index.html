@@ -21,6 +21,9 @@
     <!--Header CSS-->
     <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
 
+    <!--New Tweet CSS-->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -46,14 +49,21 @@
           <img class="avatar" src="/images/profile-hex.png"> 
       </div>
       <br>
-      <div>
-          <h2>Your Name</h2>
+      <div class="yourName">
+          <span> <strong>Your </strong>  name</span>
       </div>
   </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h1>First Tweet:</h1>
-      <p>This is our first tweet 😘 </p>
+      <section class="new-tweet">
+        <form method="POST" action="/tweets/">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <div class="buttonCounter">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text"><strong>140</strong></output>
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>

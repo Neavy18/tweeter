@@ -1,0 +1,37 @@
+.container {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+#tweet-text {
+  width: 800px ;
+  height: 40px;
+  margin-top: 40px;
+  outline: none;
+  border: none;
+  border-bottom: 4px solid black;
+  display: flex;
+  background-color: inherit;
+  resize: none;
+  
+}
+
+#tweet-text::-webkit-input-placeholder {
+  font-weight: bold;
+}
+
+[type="submit"] {
+  background-color: #0f1a41;  
+  color: white;
+  font-family: Bungee, "sans-serif";
+  font-size: 20px;
+}
+
+.buttonCounter {
+  display: flex;
+  justify-content:space-between ;
+  font-family: Bungee, "sans-serif";
+  padding-top: 15px;
+}
