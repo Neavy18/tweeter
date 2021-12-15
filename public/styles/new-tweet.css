@@ -35,3 +35,50 @@
   font-family: Bungee, "sans-serif";
   padding-top: 15px;
 }
+
+.tweet-container {
+  width: 60%;
+  margin-top: 40px;
+  border: 3px #0f1a41 solid;
+  background-color: inherit;
+  padding: 0.7em;
+}
+
+.tweet-container:hover {
+  box-shadow: 5px 5px grey;
+}
+article {
+  width: 100%;
+}
+
+
+header{
+  background-color: inherit;
+  color: rgb(52, 52, 52);
+  font-size: 15px;
+}
+
+
+.user {
+  color: blue;
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 4px solid black;
+  padding: 0.3em;
+  
+}
+
+.flag:hover, .share:hover, .heart:hover {
+  color: blue;
+}
+
+
