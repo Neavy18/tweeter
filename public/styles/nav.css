@@ -7,8 +7,10 @@ nav {
   padding-left: 1.5em;
   padding-right: 1.5em;
   background-color: #0f1a41;
+  overflow: hidden;
   color: white;
-  position: sticky;
+  position: fixed;
+  top: 0;
 }
 
 #navTitle {
