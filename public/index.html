@@ -64,17 +64,15 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <form method="POST" action="/tweets/">
+        <form class="post-tweet" method="POST" action="/tweets/">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="buttonCounter">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text"><strong>140</strong></output>
           </div>
         </form>
-      </section>
-        
+      </section> 
         <div id ="tweets-container"></div> 
-          
     </main>
   </body>
 </html>
