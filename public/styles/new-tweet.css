@@ -36,19 +36,16 @@
   padding-top: 15px;
 }
 
-.tweet-container {
-  width: 60%;
-  margin-top: 40px;
-  border: 3px #0f1a41 solid;
-  background-color: inherit;
-  padding: 0.7em;
-}
 
-.tweet-container:hover {
+article:hover {
   box-shadow: 5px 5px grey;
 }
 article {
   width: 100%;
+  margin-top: 40px;
+  border: 3px #0f1a41 solid;
+  background-color: inherit;
+  padding: 0.7em;
 }
 
 
