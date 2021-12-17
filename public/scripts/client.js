@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   };
 
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -48,15 +48,15 @@ $(document).ready(function() {
 
     let errorMsg = undefined;
 
-    if(!tweet) {
-      errorMsg = "Please make sure to be tweetin' about something!"
-    } 
+    if (!tweet) {
+      errorMsg = "Please make sure to be tweetin' about something!";
+    }
     if (tweet > 140) {
-      errorMsg = "Please respect our arbitrary number of 140 characters! #kthxbye"
-    } 
-    
-    return $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000)
-  }
+      errorMsg = "Please respect our arbitrary number of 140 characters! #kthxbye";
+    }
+   
+    return $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000);
+  };
 
   const $errorMessage = function(message) {
     let $errMsg = $(`
@@ -64,32 +64,32 @@ $(document).ready(function() {
       <i class="fa-solid fa-triangle-exclamation"></i>
       <h4>${message}</h4>
       <i class="fa-solid fa-triangle-exclamation"></i>
-    </div>`)
+    </div>`);
     
-    return $errMsg
-  }
+    return $errMsg;
+  };
 
   $(".post-tweet").submit(function(event) {
     
     event.preventDefault();
     
-    const tweetLength = event.target[0].value.length 
+    $(".errMessage").slideUp(1000);
 
-    if(!tweetLength || tweetLength > 140) {
-      return detectError(tweetLength)
+    const tweetLength = event.target[0].value.length;
+
+    if (!tweetLength || tweetLength > 140) {
+      return detectError(tweetLength);
     }
 
-      $.ajax("/tweets", {
-        method: "POST",
-        data: $(this).serialize()
-      })
+    $.ajax("/tweets", {
+      method: "POST",
+      data: $(this).serialize()
+    })
       .then((data) => {
-        loadTweets()
+        loadTweets();
         $("#tweet-text").val('');
         $(".counter").val(140);
       });
-   
-
   });
 
   const loadTweets = function() {
