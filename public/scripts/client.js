@@ -6,7 +6,7 @@
 
 
 $(document).ready(function() {
-  
+
   const renderTweets = function(tweets) {
     tweets.forEach((tw) => {
       let tweet = createTweetElement(tw);
@@ -41,12 +41,28 @@ $(document).ready(function() {
   };
 
   $(".post-tweet").submit(function(event) {
+    
     event.preventDefault();
+    
+    const tweetLength = event.target[0].value.length 
+      
+    if(tweetLength > 140){
+      alert("Your tweet is over our arbirtrary limit of 140 characters!")
+      return
+    } else  if(!tweetLength){
+      alert("Please make sure to be tweetin' about something!")
+      return
+    }
+  
     $.ajax("/tweets", {
       method: "POST",
       data: $(this).serialize()
     })
-      .then((data) => {});
+      .then((data) => {
+        loadTweets()
+        $("#tweet-text").val('');
+        $(".counter").val(140);
+      });
   });
 
   const loadTweets = function() {
