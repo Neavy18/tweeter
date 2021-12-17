@@ -15,6 +15,12 @@ $(document).ready(function() {
 
   };
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function(tweet) {
     let $tweet = $(`
     <article>
@@ -25,7 +31,7 @@ $(document).ready(function() {
         </div>
         <span>${tweet.user.handle}</span>
       </header>
-      <p>${tweet.content.text}</p>
+      <p> ${escape(tweet.content.text)}</p>
       <footer>
         <span>${timeago.format(tweet.created_at)}</span>
         <div class = "icons">
@@ -35,34 +41,54 @@ $(document).ready(function() {
         </div>
       </footer>
   </article>`);
-  
     return $tweet;
-  
   };
+
+  const detectError = function(tweet) {
+
+    let errorMsg = undefined;
+
+    if(!tweet) {
+      errorMsg = "Please make sure to be tweetin' about something!"
+    } 
+    if (tweet > 140) {
+      errorMsg = "Please respect our arbitrary number of 140 characters! #kthxbye"
+    } 
+    
+    $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000)
+  }
+
+  const $errorMessage = function(message) {
+    let $errMsg = $(`
+    <div class="errMessage">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <h4>${message}</h4>
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>`)
+
+    return $errMsg
+  }
 
   $(".post-tweet").submit(function(event) {
     
     event.preventDefault();
     
     const tweetLength = event.target[0].value.length 
-      
-    if(tweetLength > 140){
-      alert("Your tweet is over our arbirtrary limit of 140 characters!")
+
+    if (detectError(tweetLength)) {
       return
-    } else  if(!tweetLength){
-      alert("Please make sure to be tweetin' about something!")
-      return
-    }
-  
+    } 
+
     $.ajax("/tweets", {
       method: "POST",
       data: $(this).serialize()
     })
-      .then((data) => {
-        loadTweets()
-        $("#tweet-text").val('');
-        $(".counter").val(140);
-      });
+    .then((data) => {
+      loadTweets()
+      $("#tweet-text").val('');
+      $(".counter").val(140);
+    });
+
   });
 
   const loadTweets = function() {

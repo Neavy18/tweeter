@@ -48,13 +48,11 @@ article {
   padding: 0.7em;
 }
 
-
 header{
   background-color: inherit;
   color: rgb(52, 52, 52);
   font-size: 15px;
 }
-
 
 .user {
   color: blue;
@@ -78,4 +76,17 @@ article footer {
   color: blue;
 }
 
+.errMessage {
+  width: inherit;
+  height: 3rem ;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2rem;
+  border: 3px solid red;
+  color: red
+}
 
+.fa-triangle-exclamation {
+  color: red;
+}
