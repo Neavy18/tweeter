@@ -55,7 +55,7 @@ $(document).ready(function() {
       errorMsg = "Please respect our arbitrary number of 140 characters! #kthxbye"
     } 
     
-    $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000)
+    return $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000)
   }
 
   const $errorMessage = function(message) {
@@ -65,7 +65,7 @@ $(document).ready(function() {
       <h4>${message}</h4>
       <i class="fa-solid fa-triangle-exclamation"></i>
     </div>`)
-
+    
     return $errMsg
   }
 
@@ -75,19 +75,20 @@ $(document).ready(function() {
     
     const tweetLength = event.target[0].value.length 
 
-    if (detectError(tweetLength)) {
-      return
-    } 
+    if(!tweetLength || tweetLength > 140) {
+      return detectError(tweetLength)
+    }
 
-    $.ajax("/tweets", {
-      method: "POST",
-      data: $(this).serialize()
-    })
-    .then((data) => {
-      loadTweets()
-      $("#tweet-text").val('');
-      $(".counter").val(140);
-    });
+      $.ajax("/tweets", {
+        method: "POST",
+        data: $(this).serialize()
+      })
+      .then((data) => {
+        loadTweets()
+        $("#tweet-text").val('');
+        $(".counter").val(140);
+      });
+   
 
   });
 
