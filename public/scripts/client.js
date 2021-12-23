@@ -30,7 +30,7 @@ $(document).ready(function() {
     <article>
       <header>
         <div class = "user">
-          <img src = "${tweet.user.avatars}"/ > 
+          <img class = "avatar" src = "${tweet.user.avatars}"/ > 
           <span>${tweet.user.name}</span>
         </div>
         <span>${tweet.user.handle}</span>

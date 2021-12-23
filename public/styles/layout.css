@@ -40,11 +40,21 @@ body {
   color: red;
 }
 
-
-@media (min-width: 1024px ) {
-
+@media only screen and (min-width: 1024px ) {
+  body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+   
+  } 
+  .container {
+    margin-right: 3%;
+  }
+  .header {
+    margin: 5%;
+    margin-right: 10%;
+  }
 }
 
-@media (min-width: 768px ) {
 
-}
+

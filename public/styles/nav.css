@@ -6,7 +6,8 @@ nav {
   width: 100%;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  background-color: #0f1a41;
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+  background-color: rgb(109, 42, 42);
   overflow: hidden;
   color: white;
   position: fixed;
@@ -24,7 +25,16 @@ nav {
   align-items: center;
 }
 
-.fa-solid {
+.fa-angles-down {
   padding-top: 10px;
-  color: rgb(109, 42, 42);
+  color: white
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #0f1a41;
+  }
+  .fa-angles-down {
+    color: rgb(109, 42, 42);
+  }
 }

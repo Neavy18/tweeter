@@ -1,9 +1,8 @@
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 400px; 
+  height: 100%; 
   width: 100%;
   color: white;
   background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
@@ -15,4 +14,19 @@
   flex-direction: row;
   align-items: center;
   font-size: 40px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 1024px ) {
+
+  .header {
+    margin: 5%;
+    margin-right: 10%;
+    height: 80%;
+    width: 50%;
+  }
+  .avatar {
+    margin-top: 20px;
+  }
+  
 }
