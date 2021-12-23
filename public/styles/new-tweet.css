@@ -1,21 +1,23 @@
-.container {
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
+
+header{
+  background-color: inherit;
+  color: rgb(52, 52, 52);
+  font-size: 15px;
+}
+.new-tweet {
+  width: inherit;
 }
 
 #tweet-text {
-  width: 800px ;
+  display: flex;
+  width: 100%;
   height: 40px;
-  margin-top: 40px;
   outline: none;
   border: none;
+  margin-top: 40px;
   border-bottom: 4px solid black;
-  display: flex;
   background-color: inherit;
   resize: none;
-  
 }
 
 #tweet-text::-webkit-input-placeholder {
@@ -32,30 +34,28 @@
 .buttonCounter {
   display: flex;
   justify-content:space-between ;
-  font-family: Bungee, "sans-serif";
   padding-top: 15px;
-}
-
-
-article:hover {
-  box-shadow: 5px 5px grey;
-}
-article {
-  width: 100%;
-  margin-top: 40px;
-  border: 3px #0f1a41 solid;
-  background-color: inherit;
-  padding: 0.7em;
-}
-
-header{
-  background-color: inherit;
-  color: rgb(52, 52, 52);
-  font-size: 15px;
+  font-family: Bungee, "sans-serif";
 }
 
 .user {
-  color: blue;
+  color: #0f1a41;
+}
+
+#tweets-container {
+  width: inherit;
+}
+
+article {
+  width: 100%;
+  margin-top: 40px;
+  padding: 0.7em;
+  border: 3px #0f1a41 solid;
+  background-color: inherit;
+}
+
+article:hover {
+  box-shadow: 5px 5px grey;
 }
 
 article header {
@@ -67,21 +67,21 @@ article header {
 article footer {
   display: flex;
   justify-content: space-between;
-  border-top: 4px solid black;
   padding: 0.3em;
-  
+  border-top: 4px solid black;
 }
 
 .flag:hover, .share:hover, .heart:hover {
-  color: blue;
+  color: #0f1a41;
 }
 
+
 .errMessage {
-  width: inherit;
-  height: 3rem ;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  width: inherit;
+  height: 3rem ;
   margin-top: 2rem;
   border: 3px solid red;
   color: red

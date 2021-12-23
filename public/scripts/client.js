@@ -7,19 +7,23 @@
 
 $(document).ready(function() {
 
-  const renderTweets = function(tweets) {
-    tweets.forEach((tw) => {
-      let tweet = createTweetElement(tw);
-      $('#tweets-container').prepend(tweet);
-    });
-
-  };
-
-  const escape = function(str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
+  $(".post-tweet").submit(function(event) { 
+    event.preventDefault(); 
+    $(".errMessage").slideUp(1000);
+    const tweetLength = event.target[0].value.length;
+      if (!tweetLength || tweetLength > 140) {
+      return detectError(tweetLength);
+    }
+    $.ajax("/tweets", {
+      method: "POST",
+      data: $(this).serialize()
+    })
+      .then((data) => {
+        loadTweets();
+        $("#tweet-text").val('');
+        $(".counter").val(140); 
+      });
+  });
 
   const createTweetElement = function(tweet) {
     let $tweet = $(`
@@ -44,17 +48,28 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  const renderTweets = function(tweets) {
+    tweets.forEach((tw) => {
+      let tweet = createTweetElement(tw);
+      $('#tweets-container').prepend(tweet);
+    });
+
+  };
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const detectError = function(tweet) {
-
     let errorMsg = undefined;
-
     if (!tweet) {
       errorMsg = "Please make sure to be tweetin' about something!";
     }
     if (tweet > 140) {
       errorMsg = "Please respect our arbitrary number of 140 characters! #kthxbye";
     }
-   
     return $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000);
   };
 
@@ -64,33 +79,9 @@ $(document).ready(function() {
       <i class="fa-solid fa-triangle-exclamation"></i>
       <h4>${message}</h4>
       <i class="fa-solid fa-triangle-exclamation"></i>
-    </div>`);
-    
+    </div>`);  
     return $errMsg;
   };
-
-  $(".post-tweet").submit(function(event) {
-    
-    event.preventDefault();
-    
-    $(".errMessage").slideUp(1000);
-
-    const tweetLength = event.target[0].value.length;
-
-    if (!tweetLength || tweetLength > 140) {
-      return detectError(tweetLength);
-    }
-
-    $.ajax("/tweets", {
-      method: "POST",
-      data: $(this).serialize()
-    })
-      .then((data) => {
-        loadTweets();
-        $("#tweet-text").val('');
-        $(".counter").val(140);
-      });
-  });
 
   const loadTweets = function() {
     $.ajax("/tweets", {
