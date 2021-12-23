@@ -21,10 +21,10 @@ Tweeter is a simple, single-page, AJAX-based Twitter clone.
 
 ## Screenshots
 
-!["Screenshot of the Desktop display"‘](https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-desktop.png?raw=true)
+!["Screenshot of the Desktop display"](https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-desktop.png?raw=true)
 
-!["Screenshot of the Tablet display"] (https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-tablet.png?raw=true)
+!["Screenshot of the Tablet display"](https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-tablet.png?raw=true)
 
-!["Error message 1"] (https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-err1.png?raw=true)
+!["Error message 1"](https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-err1.png?raw=true)
 
-!["Error message 2"] (https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-err2.png?raw=true)
+!["Error message 2"](https://github.com/Neavy18/tweeter/blob/master/docs/tweet-box-err2.png?raw=true)
