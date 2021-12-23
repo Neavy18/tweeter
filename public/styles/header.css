@@ -1,3 +1,4 @@
+/* The current user's picture and name */
 .header {
   display: flex;
   flex-direction: column;
@@ -6,7 +7,7 @@
   width: 100%;
   color: white;
   background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
-  background-color: rgb(109, 42, 42);
+  background-color: rgb(133, 43, 43);
 }
 
 .yourName {
@@ -17,8 +18,9 @@
   margin-bottom: 20px;
 }
 
+/* Query for if the user is on a desktop */
+ 
 @media only screen and (min-width: 1024px ) {
-
   .header {
     margin: 5%;
     margin-right: 10%;
@@ -26,7 +28,6 @@
     width: 50%;
   }
   .avatar {
-    margin-top: 20px;
+    margin-top: 20px; 
   }
-  
 }

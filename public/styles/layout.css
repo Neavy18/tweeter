@@ -10,9 +10,7 @@
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+/* Body, main container and error (color) settings" */
 
 body {
   display: flex;
@@ -40,12 +38,12 @@ body {
   color: red;
 }
 
+/* Query for if the user is on a Desktop */
 @media only screen and (min-width: 1024px ) {
   body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-   
   } 
   .container {
     margin-right: 3%;

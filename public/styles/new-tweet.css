@@ -1,9 +1,10 @@
-
+/* New tweet text area*/
 header{
   background-color: inherit;
   color: rgb(52, 52, 52);
   font-size: 15px;
 }
+
 .new-tweet {
   width: inherit;
 }
@@ -24,6 +25,8 @@ header{
   font-weight: bold;
 }
 
+
+/* Submit tweet button */
 [type="submit"] {
   background-color: #0f1a41;  
   color: white;
@@ -31,6 +34,7 @@ header{
   font-size: 20px;
 }
 
+/* Character counter */
 .buttonCounter {
   display: flex;
   justify-content:space-between ;
@@ -38,10 +42,13 @@ header{
   font-family: Bungee, "sans-serif";
 }
 
+/* Username */
 .user {
   color: #0f1a41;
 }
 
+
+/* Tweet articles*/
 #tweets-container {
   width: inherit;
 }
@@ -71,10 +78,21 @@ article footer {
   border-top: 4px solid black;
 }
 
-.flag:hover, .share:hover, .heart:hover {
+
+/* Icons default */
+.flag, .share, .heart {
   color: #0f1a41;
 }
 
+/* Icons on hover --> The heart has a different shade than the 2 other icons */
+.flag:hover, .share:hover {
+  color: rgb(133, 43, 43);
+}
+.heart:hover {
+  color: rgb(181, 48, 48);
+}
+
+/* Error messages */
 .errMessage {
   display: flex;
   justify-content: space-evenly;
@@ -83,9 +101,11 @@ article footer {
   height: 3rem ;
   margin-top: 2rem;
   border: 3px solid red;
-  color: red
+  color: red;
+  font-size: 80%;
 }
 
+/* Error icons */
 .fa-triangle-exclamation {
   color: red;
 }

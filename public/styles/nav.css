@@ -1,3 +1,4 @@
+/* All the nav bar CSS */
 nav {
   display: flex;
   align-items: center;
@@ -7,7 +8,7 @@ nav {
   padding-left: 1.5em;
   padding-right: 1.5em;
   background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
-  background-color: rgb(109, 42, 42);
+  background-color: rgb(133, 43, 43);
   overflow: hidden;
   color: white;
   position: fixed;
@@ -30,11 +31,12 @@ nav {
   color: white
 }
 
+/* Query for if the user is on a Desktop */
 @media only screen and (min-width: 1024px) {
   nav {
     background-color: #0f1a41;
   }
   .fa-angles-down {
-    color: rgb(109, 42, 42);
+    color: rgb(133, 43, 43);
   }
 }
