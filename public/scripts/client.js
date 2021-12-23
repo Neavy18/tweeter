@@ -4,14 +4,16 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 $(document).ready(function() {
 
-  $(".post-tweet").submit(function(event) { 
-    event.preventDefault(); 
+  /* Prevents default page reload */
+  $(".post-tweet").submit(function(event) {
+    event.preventDefault();
+
+  /* Error message for empty tweets or over 140 characters */
     $(".errMessage").slideUp(1000);
     const tweetLength = event.target[0].value.length;
-      if (!tweetLength || tweetLength > 140) {
+    if (!tweetLength || tweetLength > 140) {
       return detectError(tweetLength);
     }
     $.ajax("/tweets", {
@@ -21,10 +23,11 @@ $(document).ready(function() {
       .then((data) => {
         loadTweets();
         $("#tweet-text").val('');
-        $(".counter").val(140); 
+        $(".counter").val(140);
       });
   });
 
+  /* Creates actual tweet article  */
   const createTweetElement = function(tweet) {
     let $tweet = $(`
     <article>
@@ -48,6 +51,7 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  /* Prepends the tweets to the page */
   const renderTweets = function(tweets) {
     tweets.forEach((tw) => {
       let tweet = createTweetElement(tw);
@@ -56,12 +60,14 @@ $(document).ready(function() {
 
   };
 
+  /* Ensures that the text comes out within the proper area and well-displayed" */
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+   /* Error handling function */
   const detectError = function(tweet) {
     let errorMsg = undefined;
     if (!tweet) {
@@ -73,16 +79,18 @@ $(document).ready(function() {
     return $errorMessage(errorMsg).appendTo(".error-container").hide().slideDown(1000);
   };
 
+  /* Error handling HTML */
   const $errorMessage = function(message) {
     let $errMsg = $(`
     <div class="errMessage">
       <i class="fa-solid fa-triangle-exclamation"></i>
       <h4>${message}</h4>
       <i class="fa-solid fa-triangle-exclamation"></i>
-    </div>`);  
+    </div>`);
     return $errMsg;
   };
 
+  /* Loads page with new prepended tweet */
   const loadTweets = function() {
     $.ajax("/tweets", {
       method: "GET"
