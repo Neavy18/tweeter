@@ -53,11 +53,11 @@ $(document).ready(function() {
 
   /* Prepends the tweets to the page */
   const renderTweets = function(tweets) {
+    $('#tweets-container').empty()
     tweets.forEach((tw) => {
       let tweet = createTweetElement(tw);
       $('#tweets-container').prepend(tweet);
     });
-
   };
 
   /* Ensures that the text comes out within the proper area and well-displayed" */
